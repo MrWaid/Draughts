@@ -1,4 +1,5 @@
 import string
+import time
 from itertools import product
 
 import pygame
@@ -75,6 +76,7 @@ def game_loop(screen: Surface, board: BoardState, ai: AI) -> int:
 
             # ход ии
             if keys[pygame.K_UP] or ai.work_or_not == board.current_player:
+                time.sleep(0.2)
                 new_board = ai.next_move(board, board.current_player)
                 if new_board is not None:
                     board = new_board
